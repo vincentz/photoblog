@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+{{if not .Login}}
+<a href="/register">sign in/sign up</a>
+{{end}}
+{{if .Login}}
+<a href="/logout">log out</a>
+{{end}}
+
+<h1>Pictures:</h1>
+{{range .Pics}}
+<img src="/public/pics/{{.}}" width="400px">
+{{end}}
+
+{{if .Login}}
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="newfile" accept="image/*">
+    <input type="submit">
+</form>
+{{end}}
+
+</body>
+</html>
